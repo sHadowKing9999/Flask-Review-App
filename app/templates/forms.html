@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Feedback</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
+        <script src="https://kit.fontawesome.com/f92b0c41ba.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+      </head>
+    <body>
+      <nav class="navbar navbar-light navbar-expand-sm fixed-top" style="background-color: #6ef0f5;">
+        <div class="container">
+            <a class="navbar-brand mr-auto" href="./index.html"><img src="{{url_for('static',filename='img/amazon.png')}}" alt="amazon" height="30" width="41"></a>
+            
+        </div>
+    </nav>
+    <div class="container first "  >
+      
+      {%from "errors.html" import render_field%}
+      <div class ="row" >
+        <div class ="col-md-6 offset-md-3 align-items-center border-dark form" style="padding-top: 30px;">
+          <h2 style="text-align: center;"><span class="fa fa-star"></span> Send Feedback</h2><br>
+          <form method="POST" action="/feedback">
+            <div class="form-group row">
+              <label for="username" class="col-md-2 col-form-label">User Name
+              </label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" id="username" name="username" placeholder="User Name">
+              </div>
+              <small class="form-text text-danger">{{render_field(form.username)}}.</small>
+            </div>
+            <div class="form-group row">
+              <label for="product" class="col-md-2 col-form-label
+                ">Product</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" id="product" name="product" placeholder="Product Name">
+              </div>
+              <small class="form-text text-danger">{{render_field(form.product)}}.</small>
+            </div>
+            <div class="form-group row ">
+              <div class="col-2">Rating</div>
+              <div class="col-10">
+                <div class="stars d-flex flex-row-reverse">
+                  <input class="star star-5" id="star-5" type="radio" name="rating" value="5"/>
+                  <label class="star star-5" for="star-5"></label>
+                  <input class="star star-4" id="star-4" type="radio" name="rating" value="4"/>
+                  <label class="star star-4" for="star-4"></label>
+                  <input class="star star-3" id="star-3" type="radio" name="rating" value="3"/>
+                  <label class="star star-3" for="star-3"></label>
+                  <input class="star star-2" id="star-2" type="radio" name="rating" value="2"/>
+                  <label class="star star-2" for="star-2"></label>
+                  <input class="star star-1" id="star-1" type="radio" name="rating" value="1"/>
+                  <label class="star star-1" for="star-1"></label>
+                </div>
+              </div>
+              <small class="form-text text-danger">{{render_field(form.rating)}}.</small>
+            </div>
+            <div class="form-group row">
+              <label for="review" class="col-md-2 form-label">Write your review</label>
+              <div class="col-md-10">
+                <textarea class="form-control" id="review" name="review" rows='5'></textarea>
+              </div>
+              <small class="form-text text-danger">{{render_field(form.review)}}</small>
+            </div><br/>
+            <div class="form-group row">
+              <div class="col-md-3 offset-md-2">
+                <button type="submit" class="btn btn-primary">Post Review</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/8.2.4/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/8.2.4/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>       
+    </body>
+</html>

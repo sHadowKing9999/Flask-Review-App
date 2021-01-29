@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Feedback</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
+        <script src="https://kit.fontawesome.com/f92b0c41ba.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+      </head>
+    <body>
+      <nav class="navbar navbar-light navbar-expand-sm fixed-top" style="background-color: #6ef0f5;">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand ml-auto" href="./index.html"><img src="{{url_for('static',filename='img/amazon.png')}}" alt="amazon" height="30" width="41"></a>
+            <div class="collapse navbar-collapse" id="Navbar">
+                <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active"><a class="nav-link" href="#"><span class="fas fa-info-circle  fa-lg"></span> Reviews</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container first"  >
+      <h2 style="text-align: center;">Reviews</h2>
+      <div class="row">
+            {% for feedback in feedbacks %}
+          <div class="col-md-10 offset-md-1">
+          <div class="card mb-4 border-dark">
+              <div class="card-header">
+                  Product : {{ feedback['Product Name'] }}
+              </div>
+              <div class="card-body">
+                  <div class="card-title">User Name : {{ feedback['User Name'] }}</div>
+                  <div class="card-subtitle mb-2 text-muted">Rating :
+                        {% for i in range((feedback['Rating'])) %}
+                        <span class="fa fa-star checked"></span>
+                        {% endfor %}
+                        {% for i in range(5-(feedback['Rating'])) %}
+                        <span class="fa fa-star"></span>
+                        {% endfor %}
+                  </div>
+                  <p class="card-text">{{feedback['Review']}}</p>
+              </div>
+              <div class="card-footer text-muted">
+                {{ feedback['Time'] }}
+              </div>
+          </div>
+        </div>
+            {% endfor %}
+          </div>
+      <br/>
+    </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>       
+    </body>
+</html>
