@@ -12,6 +12,7 @@
       </head>
     <body>
       <nav class="navbar navbar-light navbar-expand-sm fixed-top" style="background-color: #6ef0f5;">
+          
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
                 <span class="navbar-toggler-icon"></span>
@@ -23,10 +24,20 @@
                 </ul>
             </div>
         </div>
+        
     </nav>
-    <div class="container first"  >
-      <h2 style="text-align: center;">Reviews</h2>
+    <div class="container mb-4">
       <div class="row">
+        <ol class="breadcrumb offset-md-1 col-md-10">
+          <li class="breadcrumb-item"><a href="./forms.html">Feedback</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Reviews</li>
+        </ol>
+      </div>
+    </div>
+      
+    <div class="container"  >
+      <h2 style="text-align: center;">Reviews</h2>
+      <div class="row mt-3">
             {% for feedback in feedbacks %}
           <div class="col-md-10 offset-md-1">
           <div class="card mb-4 border-dark">
