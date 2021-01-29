@@ -46,4 +46,3 @@ def feedback():
         return redirect(url_for('reviews'))
     else:
         return render_template('forms.html',form=form)
-app.run(debug=True)
